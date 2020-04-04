@@ -11,7 +11,7 @@ ymaps.ready(function() {
         var district = event.get('target').getParent();
         district.options.set({ strokeColor: '#000000' });
         var coords = event.get('coords');
-        coords[0] = coords[0] + 2;
+        coords[0] = coords[0] + 0.1;
         districtBalloon.open(
             coords,
             baloonText(district)
@@ -37,7 +37,7 @@ ymaps.ready(function() {
         zoom: 1,
         controls: ['zoomControl']
     },{
-        restrictMapArea: [[10, 10], [85,-160]]
+        restrictMapArea: [[10, 10], [85, -160]]
     });
     var districtBalloon = new ymaps.Balloon(map);
     districtBalloon.options.setParent(map.options);
