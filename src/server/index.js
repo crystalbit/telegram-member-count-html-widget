@@ -1,6 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
-const { server } = require('../config');
+const { server, yandex } = require('../config');
 const database = require('../common/database');
 const { setBounds, getProportion } = require('./helpers/normalize');
 const { getColor } = require('./helpers/percentToColor');
@@ -47,7 +47,8 @@ app.get('/', async (req, res) => {
             username: item.username
         }));
     res.render('index', {
-        items: mapped
+        items: mapped,
+        key: yandex.key
     });
 });
 

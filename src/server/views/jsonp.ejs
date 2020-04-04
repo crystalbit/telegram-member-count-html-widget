@@ -1,9 +1,9 @@
 ymaps.ready(function() {
     var highlightedDistrict;
 
-    function baloonText(count, chatLink, name) {
-        return 'Чат: <a href="tg://resolve?domain=' + chatLink + '">' + name + '</a><br/>\n' +
-                'Участников: ' + count + '<br/>';
+    function baloonText(district, count, chatLink, name) {
+        return 'Чат: <a href="tg://resolve?domain=' + district.properties.username + '">' + district.properties.name + '</a><br/>\n' +
+                'Участников: ' + district.properties.count + '<br/>';
     }
 
     function mouseEnterHandler(event) {
@@ -11,7 +11,7 @@ ymaps.ready(function() {
         district.options.set({fillOpacity: 1});
         districtBalloon.open(
             event.get('coords'),
-            baloonText(district.properties.count, district.properties.username, district.properties.name)
+            baloonText(district)
         );
     };
     function mouseLeaveHandler(event) {
@@ -20,6 +20,23 @@ ymaps.ready(function() {
             district.options.set({fillOpacity: 0.3});
         }
     };
+
+    function clickEventHandler(event) {
+        var target = event.get('target');
+        var district = target.getParent();
+        // Если на карте выделен федеральный округ, то мы снимаем с него выделение.
+        if (highlightedDistrict) {
+            highlightedDistrict.options.set({fillOpacity: 0.3})
+        }
+        // Откроем балун в точке клика. В балуне будут перечислены регионы того федерального округа,
+        // по которому кликнул пользователь.
+        districtBalloon.open(event.get('coords'), baloonText(district));
+        // Выделим федеральный округ.
+        district.options.set({fillOpacity: 1});
+        // Сохраним ссылку на выделенный федеральный округ.
+        highlightedDistrict = district;
+    }
+
     var map = new ymaps.Map("first_map", {
         center: [60, 80],
         zoom: 3,
@@ -47,13 +64,13 @@ ymaps.ready(function() {
                 region.properties.count = <%= item.count %>;
                 region.properties.name = '<%= item.name %>';
                 region.properties.username = '<%= item.username %>';
-                //spb.properties.districts = [];
                 <% item.codes.forEach(code => { %>
                 region.add(new ymaps.GeoObject(features.find(reg => reg.properties.iso3166 === '<%= code %>')));
                 <% }); %>
                 map.geoObjects.add(region);
                 region.events.add('mouseenter', mouseEnterHandler);
                 region.events.add('mouseleave', mouseLeaveHandler);
+                /* region.events.add('click', clickEventHandler); */
             })();
         <% }); %>
     });
