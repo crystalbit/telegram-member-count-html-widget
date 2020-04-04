@@ -40,6 +40,14 @@ const findOne = username => {
     return Chat.findOne({ username: username.toLowerCase() }).exec();
 }
 
+const findOneById = id => {
+    return Chat.findOne({ id }).exec();
+}
+
+const updateById = (id, data) => {
+    return Chat.findOneAndUpdate({ id }, data);
+}
+
 const get = () => {
     return Chat.find({ id: { $exists: true } });
 }
@@ -50,5 +58,7 @@ module.exports = {
     updateName,
     updateId,
     findOne,
-    get
+    get,
+    findOneById,
+    updateById
 };

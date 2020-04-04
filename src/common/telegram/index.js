@@ -28,7 +28,13 @@ bot.use(async ctx => {
         if (!chat.username) return;
         const finder = await database.findOne(chat.username);
         if (!finder) {
-            if (chat.username) {
+            // new group
+            const finderById = await database.findOneById(chat.id);
+            if (finderById) {
+                // username changed
+                await database.updateById(chat.id, { username: chat.username.toLowerCase() });
+            } else if (chat.username) {
+                // absolutely new
                 database.add({
                     name: chat.title,
                     username: chat.username,
@@ -37,7 +43,7 @@ bot.use(async ctx => {
             }
         }
 
-        if (finder.name !== chat.title) {
+        if (finder && finder.name !== chat.title) {
             await database.updateName(chat.username, chat.title);
             await database.updateId(chat.username, chat.id);
             console.log([ finder.username, finder.name, chat.username, chat.title, await bot.telegram.getChatMembersCount(chat.id) ])
