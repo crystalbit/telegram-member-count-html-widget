@@ -32,7 +32,7 @@ app.get('/', async (req, res) => {
     const getter = await database.get();
     //console.log(getter);
     const mapped = getter
-        .filter(item => item.region && item.members)
+        .filter(item => item.count && item.region && item.members)
         .map(item => ({
             codes: item.region.split(','),
             color: getColor(getProportion(item.members)),
