@@ -9,7 +9,7 @@ ymaps.ready(function() {
 
     function mouseEnterHandler(event) {
         var district = event.get('target').getParent();
-        district.options.set({fillOpacity: 1});
+        district.options.set({ strokeColor: '#000000' });
         var coords = event.get('coords');
         coords[0] = coords[0] + 2;
         districtBalloon.open(
@@ -20,7 +20,7 @@ ymaps.ready(function() {
     function mouseLeaveHandler(event) {
         var district = event.get('target').getParent();
         if (district !== highlightedDistrict) {
-            district.options.set({fillOpacity: 0.5});
+            district.options.set({ strokeColor: '#bbbbbb' });
             clicked = false;
         }
     };
@@ -28,32 +28,16 @@ ymaps.ready(function() {
     function clickEventHandlerMini(event) {
         mouseEnterHandler(event);
         var district = event.get('target').getParent();
-        if (highlightedDistrict) highlightedDistrict.options.set({fillOpacity: 0.5});
-        highlightedDistrict = district;
-    }
-
-    function clickEventHandler(event) {
-        var target = event.get('target');
-        var district = target.getParent();
-        // Если на карте выделен федеральный округ, то мы снимаем с него выделение.
-        if (highlightedDistrict) {
-            highlightedDistrict.options.set({fillOpacity: 0.5})
-        }
-        // Откроем балун в точке клика. В балуне будут перечислены регионы того федерального округа,
-        // по которому кликнул пользователь.
-        districtBalloon.open(event.get('coords'), baloonText(district));
-        // Выделим федеральный округ.
-        district.options.set({fillOpacity: 1});
-        // Сохраним ссылку на выделенный федеральный округ.
+        if (highlightedDistrict) highlightedDistrict.options.set({ strokeColor: '#bbbbbb' });
         highlightedDistrict = district;
     }
 
     var map = new ymaps.Map("first_map", {
         center: [60, 80],
-        zoom: 3,
+        zoom: 2,
         controls: ['zoomControl']
     },{
-        //restrictMapArea: [[10, 10], [85,-160]]
+        restrictMapArea: [[10, 10], [85,-160]]
     });
     var districtBalloon = new ymaps.Balloon(map);
     districtBalloon.options.setParent(map.options);
@@ -66,9 +50,9 @@ ymaps.ready(function() {
             (function() {
                 var region = new ymaps.GeoObjectCollection(null, {
                     fillColor: '<%= item.color %>',
-                    strokeColor: '#000000',
-                    strokeOpacity: 0.5,
-                    fillOpacity: 0.5,
+                    strokeColor: '#bbbbbb',
+                    strokeOpacity: 1,
+                    fillOpacity: 1,
                     hintCloseTimeout: 0,
                     hintOpenTimeout: 0
                 });
