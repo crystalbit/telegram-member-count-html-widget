@@ -41,11 +41,35 @@ ymaps.ready(function() {
     });
     var districtBalloon = new ymaps.Balloon(map);
     districtBalloon.options.setParent(map.options);
+
+    var countries;
+    var ruRegions;
+    var combinedFeatures = [];
+    ymaps.borders.load('001', {
+        lang: 'ru',
+        quality: 2
+    }).then(function(res) {
+        countries = res.features;
+        combinedFeatures = combinedFeatures.concat(countries)
+        if (ruRegions) {
+            countries = null;
+            fetchRegions();
+        }
+    });
+
     ymaps.borders.load('RU', {
         lang: 'ru',
         quality: 2
-    }).then(reg => {
-        const features = reg.features;
+    }).then(function(res) {
+        ruRegions = res.features;
+        combinedFeatures = combinedFeatures.concat(ruRegions)
+        if (countries) {
+            ruRegions = null;
+            fetchRegions();
+        }
+    });
+
+    function fetchRegions() {
         <% items.forEach(item => { %>
             (function() {
                 var region = new ymaps.GeoObjectCollection(null, {
@@ -60,7 +84,7 @@ ymaps.ready(function() {
                 region.properties.name = '<%= item.name %>';
                 region.properties.username = '<%= item.username %>';
                 <% item.codes.forEach(code => { %>
-                region.add(new ymaps.GeoObject(features.find(reg => reg.properties.iso3166 === '<%= code %>')));
+                region.add(new ymaps.GeoObject(combinedFeatures.find(reg => reg.properties.iso3166 === '<%= code %>')));
                 <% }); %>
                 map.geoObjects.add(region);
                 region.events.add('mouseenter', mouseEnterHandler);
@@ -69,5 +93,5 @@ ymaps.ready(function() {
                 /* region.events.add('click', clickEventHandler); */
             })();
         <% }); %>
-    });
+    }
 });
