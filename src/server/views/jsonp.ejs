@@ -20,7 +20,7 @@ ymaps.ready(function() {
     function mouseLeaveHandler(event) {
         var district = event.get('target').getParent();
         if (district !== highlightedDistrict) {
-            district.options.set({fillOpacity: 0.3});
+            district.options.set({fillOpacity: 0.5});
             clicked = false;
         }
     };
@@ -28,6 +28,7 @@ ymaps.ready(function() {
     function clickEventHandlerMini(event) {
         mouseEnterHandler(event);
         var district = event.get('target').getParent();
+        if (highlightedDistrict) highlightedDistrict.options.set({fillOpacity: 0.5});
         highlightedDistrict = district;
     }
 
