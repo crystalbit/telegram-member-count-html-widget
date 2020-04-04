@@ -10,7 +10,7 @@ const setBounds = (min, max) => {
 
 const getProportion = value => {
     const proportion = (value - data.min) / (data.max - data.min);
-    console.log({proportion})
+    // console.log({proportion})
     if (proportion < 0) return 0;
     if (proportion > 1) return 1;
     return proportion;

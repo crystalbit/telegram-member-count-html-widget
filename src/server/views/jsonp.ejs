@@ -1,4 +1,25 @@
 ymaps.ready(function() {
+    var highlightedDistrict;
+
+    function baloonText(count, chatLink, name) {
+        return 'Чат: <a href="tg://resolve?domain=' + chatLink + '">' + name + '</a><br/>\n' +
+                'Участников: ' + count + '<br/>';
+    }
+
+    function mouseEnterHandler(event) {
+        var district = event.get('target').getParent();
+        district.options.set({fillOpacity: 1});
+        districtBalloon.open(
+            event.get('coords'),
+            baloonText(district.properties.count, district.properties.username, district.properties.name)
+        );
+    };
+    function mouseLeaveHandler(event) {
+        var district = event.get('target').getParent();
+        if (district !== highlightedDistrict) {
+            district.options.set({fillOpacity: 0.3});
+        }
+    };
     var map = new ymaps.Map("first_map", {
         center: [60, 80],
         zoom: 3,
@@ -6,6 +27,8 @@ ymaps.ready(function() {
     },{
         //restrictMapArea: [[10, 10], [85,-160]]
     });
+    var districtBalloon = new ymaps.Balloon(map);
+    districtBalloon.options.setParent(map.options);
     ymaps.borders.load('RU', {
         lang: 'ru',
         quality: 2
@@ -21,11 +44,16 @@ ymaps.ready(function() {
                     hintCloseTimeout: 0,
                     hintOpenTimeout: 0
                 });
+                region.properties.count = <%= item.count %>;
+                region.properties.name = '<%= item.name %>';
+                region.properties.username = '<%= item.username %>';
                 //spb.properties.districts = [];
                 <% item.codes.forEach(code => { %>
                 region.add(new ymaps.GeoObject(features.find(reg => reg.properties.iso3166 === '<%= code %>')));
                 <% }); %>
                 map.geoObjects.add(region);
+                region.events.add('mouseenter', mouseEnterHandler);
+                region.events.add('mouseleave', mouseLeaveHandler);
             })();
         <% }); %>
     });

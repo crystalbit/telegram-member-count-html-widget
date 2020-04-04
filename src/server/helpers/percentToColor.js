@@ -51,7 +51,7 @@ function hslToRgb(h, s, l){
 };
 
 const getColor = value => {
-    console.log(value, hslToRgb(value, 1, 0.5))
+    // console.log(value, hslToRgb(value, 1, 0.5))
     return rgbToHex(...hslToRgb(value, 1, 0.5));
 };
 

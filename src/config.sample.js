@@ -6,7 +6,7 @@ module.exports = {
         addr: 'mongodb+srv://<mongodb connection string>'
     },
     server: {
-        route: '/covid-volunteers-map',
+        route: '/covid-volunteers-map.js',
         port: 80
     },
     yandex: {
