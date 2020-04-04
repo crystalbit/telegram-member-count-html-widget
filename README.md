@@ -1,2 +1,7 @@
 # telegram-member-count-html-widget
-Project for monitoring geo based telegram chats members count and showing the data on a map
+It is created for Russian 3d makers against covid19 community
+
+There are several telegram groups for different regions.
+Task is to watch the member count of each group and to provide embed html code to be put on external website.
+
+NodeJS, express.js and MongoDB
