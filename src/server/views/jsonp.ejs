@@ -1,7 +1,8 @@
 ymaps.ready(function() {
     var highlightedDistrict;
+    var clicked = false;
 
-    function baloonText(district, count, chatLink, name) {
+    function baloonText(district) {
         return 'Чат: <a href="tg://resolve?domain=' + district.properties.username + '">' + district.properties.name + '</a><br/>\n' +
                 'Участников: ' + district.properties.count + '<br/>';
     }
@@ -17,11 +18,19 @@ ymaps.ready(function() {
         );
     };
     function mouseLeaveHandler(event) {
-        var district = event.get('target').getParent();
-        if (district !== highlightedDistrict) {
-            district.options.set({fillOpacity: 0.3});
-        }
+        // var district = event.get('target').getParent();
+        // if (district !== highlightedDistrict) {
+        //     district.options.set({fillOpacity: 0.3});
+        //     clicked = false;
+        // }
     };
+
+    function clickEventHandlerMini(event) {
+        mouseEnterHandler(event);
+        var district = event.get('target').getParent();
+        highlightedDistrict = district;
+        clicked = true;
+    }
 
     function clickEventHandler(event) {
         var target = event.get('target');
@@ -72,7 +81,7 @@ ymaps.ready(function() {
                 map.geoObjects.add(region);
                 region.events.add('mouseenter', mouseEnterHandler);
                 region.events.add('mouseleave', mouseLeaveHandler);
-                region.events.add('click', mouseLeaveHandler);
+                region.events.add('click', clickEventHandlerMini);
                 /* region.events.add('click', clickEventHandler); */
             })();
         <% }); %>
