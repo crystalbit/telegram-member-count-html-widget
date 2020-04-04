@@ -9,6 +9,14 @@ const colors = [
     '#00CA69',
     '#00CA69',
     '#00CA69',
+    '#00CA69',
+    '#00CA69',
+    '#00CA69',
+    '#00CA69',
+    '#00CA69',
+    '#00CA69',
+    '#00CA69',
+    '#00CA69',
 ];
 
 const getColor = value => {
