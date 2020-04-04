@@ -1,0 +1,28 @@
+{
+  "name": "telegram-member-count-html-widget",
+  "version": "1.0.0",
+  "description": "There are several telegram groups for different regions. Task is to watch the member count of each group and to provide embed html code to be put on external website.",
+  "main": "src/server/index.js",
+  "scripts": {
+    "server": "node src/server",
+    "consumer": "node src/consumer"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crystalbit/telegram-member-count-html-widget.git"
+  },
+  "keywords": [
+    "covid19"
+  ],
+  "author": "crystalbit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crystalbit/telegram-member-count-html-widget/issues"
+  },
+  "homepage": "https://github.com/crystalbit/telegram-member-count-html-widget#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.7",
+    "telegraf": "^3.37.0"
+  }
+}
