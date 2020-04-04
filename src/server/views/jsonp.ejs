@@ -37,7 +37,7 @@ ymaps.ready(function() {
         var district = target.getParent();
         // Если на карте выделен федеральный округ, то мы снимаем с него выделение.
         if (highlightedDistrict) {
-            highlightedDistrict.options.set({fillOpacity: 0.3})
+            highlightedDistrict.options.set({fillOpacity: 0.5})
         }
         // Откроем балун в точке клика. В балуне будут перечислены регионы того федерального округа,
         // по которому кликнул пользователь.
@@ -67,8 +67,8 @@ ymaps.ready(function() {
                 var region = new ymaps.GeoObjectCollection(null, {
                     fillColor: '<%= item.color %>',
                     strokeColor: '#000000',
-                    strokeOpacity: 0.3,
-                    fillOpacity: 0.3,
+                    strokeOpacity: 0.5,
+                    fillOpacity: 0.5,
                     hintCloseTimeout: 0,
                     hintOpenTimeout: 0
                 });
