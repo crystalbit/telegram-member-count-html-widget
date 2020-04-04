@@ -18,18 +18,17 @@ ymaps.ready(function() {
         );
     };
     function mouseLeaveHandler(event) {
-        // var district = event.get('target').getParent();
-        // if (district !== highlightedDistrict) {
-        //     district.options.set({fillOpacity: 0.3});
-        //     clicked = false;
-        // }
+        var district = event.get('target').getParent();
+        if (district !== highlightedDistrict) {
+            district.options.set({fillOpacity: 0.3});
+            clicked = false;
+        }
     };
 
     function clickEventHandlerMini(event) {
         mouseEnterHandler(event);
         var district = event.get('target').getParent();
         highlightedDistrict = district;
-        clicked = true;
     }
 
     function clickEventHandler(event) {
