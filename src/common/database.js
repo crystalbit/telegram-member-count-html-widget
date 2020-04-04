@@ -48,6 +48,14 @@ const updateById = (id, data) => {
     return Chat.findOneAndUpdate({ id }, data);
 }
 
+const getMaxCount = () => {
+    return Chat.findOne().select('members').sort({ members: -1 }).limit(1).exec();
+}
+
+const getMinCount = () => {
+    return Chat.findOne().select('members').where({ members: { $gt: 0 } }).sort({ members: 1 }).limit(1).exec();
+}
+
 const get = () => {
     return Chat.find({ id: { $exists: true } });
 }
@@ -60,5 +68,7 @@ module.exports = {
     findOne,
     get,
     findOneById,
-    updateById
+    updateById,
+    getMaxCount,
+    getMinCount
 };

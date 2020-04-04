@@ -1,0 +1,32 @@
+ymaps.ready(function() {
+    var map = new ymaps.Map("first_map", {
+        center: [60, 80],
+        zoom: 3,
+        controls: ['zoomControl']
+    },{
+        //restrictMapArea: [[10, 10], [85,-160]]
+    });
+    ymaps.borders.load('RU', {
+        lang: 'ru',
+        quality: 2
+    }).then(reg => {
+        const features = reg.features;
+        <% items.forEach(item => { %>
+            (function() {
+                var region = new ymaps.GeoObjectCollection(null, {
+                    fillColor: '<%= item.color %>',
+                    strokeColor: '#000000',
+                    strokeOpacity: 0.3,
+                    fillOpacity: 0.3,
+                    hintCloseTimeout: 0,
+                    hintOpenTimeout: 0
+                });
+                //spb.properties.districts = [];
+                <% item.codes.forEach(code => { %>
+                region.add(new ymaps.GeoObject(features.find(reg => reg.properties.iso3166 === '<%= code %>')));
+                <% }); %>
+                map.geoObjects.add(region);
+            })();
+        <% }); %>
+    });
+});
