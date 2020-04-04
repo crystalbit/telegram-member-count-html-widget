@@ -9,8 +9,10 @@ ymaps.ready(function() {
     function mouseEnterHandler(event) {
         var district = event.get('target').getParent();
         district.options.set({fillOpacity: 1});
+        var coords = event.get('coords');
+        coords[0] = coords[0] + 2;
         districtBalloon.open(
-            event.get('coords'),
+            coords,
             baloonText(district)
         );
     };
