@@ -72,6 +72,7 @@ ymaps.ready(function() {
                 map.geoObjects.add(region);
                 region.events.add('mouseenter', mouseEnterHandler);
                 region.events.add('mouseleave', mouseLeaveHandler);
+                region.events.add('click', mouseLeaveHandler);
                 /* region.events.add('click', clickEventHandler); */
             })();
         <% }); %>
