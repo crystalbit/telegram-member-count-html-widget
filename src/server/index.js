@@ -71,7 +71,8 @@ app.get('/', async (req, res) => {
         }));
     res.render('index', {
         items: mapped,
-        key: yandex.key
+        key: yandex.key,
+        cached: new Date
     });
 });
 
