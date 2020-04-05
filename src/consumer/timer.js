@@ -7,9 +7,13 @@ const injectTelegram = _tg => telegram = _tg;
 const updater = async () => {
     const chats = await database.get();
     for (const chat of chats) {
-        const count = await telegram.getCount(chat.id);
-        await database.updateCount(chat.username, count);
-        console.log(chat.username, count);
+        try {
+            const count = await telegram.getCount(chat.id);
+            await database.updateCount(chat.username, count);
+            console.log(chat.username, count);
+        } catch (error) {
+            console.log(chat, error.stack);
+        }
         await new Promise(res => setTimeout(res, 5000));
     }
 };
