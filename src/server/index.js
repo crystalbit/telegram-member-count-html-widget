@@ -1,9 +1,13 @@
 const express = require('express');
+const minify = require('@node-minify/core');
+const uglifyJS = require('@node-minify/uglify-js');
 const morgan = require('morgan');
 const { server, yandex } = require('../config');
 const database = require('../common/database');
 const { setBounds, getProportion } = require('./helpers/normalize');
 const { getColor } = require('./helpers/percentToColor');
+
+let cache = null;
 
 const app = express();
 
@@ -26,9 +30,28 @@ app.get(server.route, async (req, res) => {
             name: item.name,
             username: item.username
         }));
-    res.render('jsonp', {
-        items: mapped
-    });
+    if (cache) {
+        res.send(cache);
+    } else {
+        res.render('jsonp', { items: mapped, cached: new Date }, async (err, code) => {
+            if (err) {
+                res.send('console.log(`Error ' + err + '`);');
+            } else {
+                let minified;
+                try {
+                    minified = await minify({
+                        compressor: uglifyJS,
+                        content: code
+                    });
+                } catch (err) {
+                    minified = code;
+                }
+                cache = minified;
+                setTimeout(() => cache = null, 5 * 60 * 1000);
+                res.send(minified);
+            }
+        });
+    }
 });
 
 app.get('/', async (req, res) => {

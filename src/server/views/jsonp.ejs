@@ -1,9 +1,11 @@
+console.log('covid map generated <%= cached %> by memological expedition');
 ymaps.ready(function() {
     var highlightedDistrict;
     var clicked = false;
 
     function baloonText(district) {
-        return 'Чат: <a href="tg://resolve?domain=' + district.properties.username + '">' + district.properties.name + '</a><br/>\n' +
+        return 'Чат: <a href="tg://resolve?domain=' + district.properties.username + '">' +
+                district.properties.name + '</a><br/>\n' +
                 'Участников: ' + district.properties.count + '<br/>';
     }
 
@@ -39,7 +41,6 @@ ymaps.ready(function() {
     },{
         restrictMapArea: [[-10, -10], [85, -160]]
     });
-    console.log(map._projection.getCoordSystem())
     var districtBalloon = new ymaps.Balloon(map);
     districtBalloon.options.setParent(map.options);
 
@@ -85,7 +86,7 @@ ymaps.ready(function() {
                 region.properties.name = '<%= item.name %>';
                 region.properties.username = '<%= item.username %>';
                 <% item.codes.forEach(code => { %>
-                region.add(new ymaps.GeoObject(combinedFeatures.find(reg => reg.properties.iso3166 === '<%= code %>')));
+                region.add(new ymaps.GeoObject(combinedFeatures.find(function(reg) { return reg.properties.iso3166 === '<%= code %>'; })));
                 <% }); %>
                 map.geoObjects.add(region);
                 region.events.add('mouseenter', mouseEnterHandler);
