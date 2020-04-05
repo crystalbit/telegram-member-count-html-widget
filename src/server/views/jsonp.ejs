@@ -37,8 +37,9 @@ ymaps.ready(function() {
         zoom: 1,
         controls: ['zoomControl']
     },{
-        restrictMapArea: [[10, 10], [85, -160]]
+        restrictMapArea: [[-10, -10], [85, -160]]
     });
+    console.log(map._projection.getCoordSystem())
     var districtBalloon = new ymaps.Balloon(map);
     districtBalloon.options.setParent(map.options);
 
