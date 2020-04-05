@@ -55,6 +55,8 @@ app.get(server.route, async (req, res) => {
 });
 
 app.get('/', async (req, res) => {
+    const host = req.headers.host;
+    if (!host.startsWith('localhost')) return res.send('https://github.com/crystalbit/telegram-member-count-html-widget');
     const max = await database.getMaxCount();
     const min = await database.getMinCount();
     setBounds(min.members, max.members);
