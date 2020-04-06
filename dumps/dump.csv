@@ -1,0 +1,86 @@
+_id,username,region,date,members,name,__v,id
+ObjectId("5e887a0ab424533b38bc3c3b"),cvd3d_spb,RU-LEN,RU-SPE,""2020-04-06T14:49:06.500Z"",207,CVD Санкт-Петербург, ЛО,0,-1001436349960
+ObjectId("5e8887d8b43943856ee7ab31"),ru_covid_3d,RU-BA,""2020-04-06T14:49:11.671Z"",94,Башкирия - Мейкеры против COVID 19,0,-1001329874136
+ObjectId("5e8887ebb43943856ee7ab32"),covid_3d_kalmykia,RU-KL,""2020-04-06T14:49:16.805Z"",17,Covid Калмыкия 3D печать,0,-1001308887754
+ObjectId("5e8887f7b43943856ee7ab33"),cvd3d_kzn,RU-TA,""2020-04-06T14:49:21.922Z"",31,CVD Казань, Татарстан,0,-1001292422303
+ObjectId("5e888817b43943856ee7ab34"),covid19_izhevsk,RU-UD,""2020-04-06T14:49:27.066Z"",19,Anti Covid Izhevsk,0,-1001381672387
+ObjectId("5e88881db43943856ee7ab35"),covid19_krasnodar_3d,RU-KDA,""2020-04-06T14:49:32.184Z"",60,CVD Краснодар,0,-1001422030628
+ObjectId("5e888825b43943856ee7ab36"),cvd3d_krsk,RU-KYA,""2020-04-06T14:49:37.357Z"",49,CVD Красноярск,0,-1001210464979
+ObjectId("5e888829b43943856ee7ab37"),cvperm,RU-PER,""2020-04-06T14:49:42.482Z"",25,CVD Пермский край,0,-1001488835960
+ObjectId("5e88882db43943856ee7ab38"),help3d_astrakhan,RU-AST,""2020-04-06T14:49:47.594Z"",21,CVD Астрахань,0,-1001348009847
+ObjectId("5e888831b43943856ee7ab39"),vladimirmakers,RU-VLA,""2020-04-06T14:49:52.752Z"",28,CVD Владимир и Владимирская область: #makerfordocs,0,-1001105583467
+ObjectId("5e888835b43943856ee7ab3a"),cvd_volgograd,RU-VGG,""2020-04-06T14:49:57.932Z"",23,CVD_Volgograd,0,-1001189852807
+ObjectId("5e88883ab43943856ee7ab3b"),cvd3d_vrn,RU-VOR,""2020-04-06T14:50:03.086Z"",29,CVD 3D Воронеж,0,-1001489777750
+ObjectId("5e88883eb43943856ee7ab3c"),covid_3d_ivanovo,RU-IVA,""2020-04-06T14:50:08.217Z"",19,covid_3d_ivanovo,0,-1001332498596
+ObjectId("5e888842b43943856ee7ab3d"),cvd3d_irkutsk,RU-IRK,""2020-04-06T14:50:13.336Z"",14,CVD Иркутск и Иркутская область,0,-1001414317808
+ObjectId("5e888847b43943856ee7ab3e"),cvd3d_kaluga,RU-KLU,""2020-04-06T14:50:18.464Z"",20,CVD3D_Kaluga,0,-1001326612181
+ObjectId("5e88884bb43943856ee7ab3f"),cvd3d_komi,RU-KO,""2020-04-06T14:50:23.577Z"",11,CVD Сыктывкар и Коми,0,-1001441013288
+ObjectId("5e88884fb43943856ee7ab40"),cvd3d_lip,RU-LIP,""2020-04-06T14:42:31.418Z"",18,3D Концепт против COVID Липецк,0,-1001350540364
+ObjectId("5e888864b43943856ee7ab41"),cvd_msk_3dprint,RU-MOS,RU-MOW,""2020-04-06T14:42:36.537Z"",256,CVD Москва 3д печать,0,-1001467327385
+ObjectId("5e88887db43943856ee7ab42"),help3d_murmansk,RU-MUR,""2020-04-06T14:42:41.672Z"",15,Мурманск против вируса,0,-1001351431893
+ObjectId("5e888881b43943856ee7ab43"),help3d_nn,RU-NIZ,""2020-04-06T14:42:47.187Z"",32,Нижний Новгород - Мейкеры против COVID19,0,-1001216782884
+ObjectId("5e888886b43943856ee7ab44"),rostov3d_covid,RU-ROS,""2020-04-06T14:42:52.314Z"",26,Ростов-на-Дону - Мейкеры против COVID-19,0,-1001390376946
+ObjectId("5e88888bb43943856ee7ab45"),cvd3d_samara,RU-SAM,""2020-04-06T14:42:57.430Z"",31,CVD Самара и Самарская область,0,-1001446265133
+ObjectId("5e888890b43943856ee7ab46"),covid_saratov,RU-SAR,""2020-04-06T14:43:02.554Z"",17,@covid_saratov,0,-1001150289345
+ObjectId("5e888903b43943856ee7ab47"),cvd3d_ekb,RU-SVE,""2020-04-06T14:43:07.694Z"",40,CVD Екатеринбург,0,-1001171419167
+ObjectId("5e88890db43943856ee7ab48"),help3d_covid19_tver,RU-TVE,""2020-04-06T14:43:12.824Z"",31,Тверь - Мейкеры против COVID19,0,-1001416760058
+ObjectId("5e888911b43943856ee7ab49"),covid_3d_tula,RU-TUL,""2020-04-04T13:18:09.812Z"",0,covid_3d_tula,0,
+ObjectId("5e88891cb43943856ee7ab4a"),cvd3d_tumen,RU-TYU,""2020-04-06T14:43:17.938Z"",24,CVD Тюмень,0,-1001103478132
+ObjectId("5e888921b43943856ee7ab4b"),cvd3d_chel,RU-CHE,""2020-04-06T14:43:23.085Z"",34,CVD Челябинск,0,-1001459360831
+ObjectId("5e888925b43943856ee7ab4c"),cvd3d_sevas,RU-KRY,RU-SEV,""2020-04-06T14:43:28.308Z"",19,Covid 19 3D Севастополь и Крым,0,-1001364565795
+ObjectId("5e888929b43943856ee7ab4d"),cvd3d_kgn,RU-KGN,""2020-04-06T14:43:33.469Z"",8,CVD Курган,0,-1001395306529
+ObjectId("5e88892eb43943856ee7ab4e"),cvd3d_adygea,RU-AD,""2020-04-06T14:43:38.584Z"",8,CVD 3D Адыгея,0,-1001406712078
+ObjectId("5e888932b43943856ee7ab4f"),cvd3d_altay,RU-ALT,RU-AL,""2020-04-06T14:43:43.717Z"",6,CVD 3D Алтай,0,-1001484314851
+ObjectId("5e888980b43943856ee7ab50"),cvd3d_buryatia,RU-BU,""2020-04-06T14:43:48.829Z"",6,CVD 3D Бурятия,0,-1001236398335
+ObjectId("5e888985b43943856ee7ab51"),cvd3d_dagestan,RU-DA,""2020-04-06T14:43:53.953Z"",7,CVD 3D Дагестан,0,-1001281903367
+ObjectId("5e888989b43943856ee7ab52"),cvd3d_ingushetia,RU-IN,""2020-04-06T14:43:59.072Z"",6,CVD 3D Ингушетия,0,-1001450506167
+ObjectId("5e88898eb43943856ee7ab53"),cvd3d_vladivostok,RU-PRI,""2020-04-06T14:44:04.185Z"",17,CVD_ВладивостокДВФУ,0,-1001481637872
+ObjectId("5e888b0eac7cb08e3018889d"),hackerspaceminsk,BY,""2020-04-04T13:26:38.622Z"",0,Hackerspace@Minsk,0,
+ObjectId("5e888b15ac7cb08e3018889e"),uacvdhelp,UA,""2020-04-06T14:44:09.293Z"",83,UACovid: Помощь,0,-1001373344930
+ObjectId("5e889c12a9bfdabfcccdf74d"),cvd3d_tyva,RU-TY,""2020-04-06T14:44:14.435Z"",6,CVD 3D Кызыл,0,-1001275428715
+ObjectId("5e889f9a6a6209ce17030d1f"),cvd3d_karelia,RU-KR,""2020-04-06T14:44:19.552Z"",10,CVD 3D Карелия,0,-1001442553573
+ObjectId("5e88b8967b5bfd03de8ff393"),cvd3d_penza,RU-PNZ,""2020-04-06T14:44:24.667Z"",13,CVD 3D Пенза,0,-1001128883601
+ObjectId("5e88b8e47b5bfd03de8ff394"),cvd3d_tomsk,RU-TOM,""2020-04-06T14:44:29.788Z"",21,covid_3d_tomsk,0,-1001205899808
+ObjectId("5e88bbb2e6bbb610eced3b11"),cvd3d_novosibirsk,RU-NVS,""2020-04-06T14:44:34.907Z"",11,CVD 3D Новосибирск,0,-1001493022046
+ObjectId("5e88bbe58b209011bb32a9d4"),covid19_yaroslavl,RU-YAR,""2020-04-06T14:44:40.042Z"",19,CVD_YAROSLAVL,0,-1001262917960
+ObjectId("5e88c66422bf5d18ef970d90"),cvd3d_pskov,RU-PSK,""2020-04-06T14:44:45.172Z"",8,CVD 3D Псков,0,-1001477618921
+ObjectId("5e88ca36a7b3943b1863bf8a"),cvd3d_arkhangelsk,RU-ARK,""2020-04-06T14:44:50.379Z"",11,CVD Архангельск,0,-1001155216982
+ObjectId("5e88d53b92386755366f09e4"),cvd3d_ossetia,RU-SE,""2020-04-06T14:44:55.583Z"",7,CVD 3D Северная Осетия,0,-1001185257588
+ObjectId("5e88dc67b562827f1524f3a7"),cvd3d_kaliningrad,RU-KGD,""2020-04-06T14:45:00.722Z"",14,CVD 3D Калининград,0,-1001207518428
+ObjectId("5e8974f85cc9cd22edbe96c4"),cvd3d_karachay_cherkess,RU-KC,""2020-04-06T14:45:05.837Z"",7,CVD 3D Карачаево-Черкессия,0,-1001432515590
+ObjectId("5e8995a65cc9cd22edbe96c5"),cvd3d_stavropol,RU-STA,""2020-04-06T14:45:10.970Z"",9,CVD 3D Ставропольский край,,-1001375787036
+ObjectId("5e899a275cc9cd22edbe96c6"),cvd3d_kursk,RU-KRS,""2020-04-06T14:45:16.145Z"",8,CVD 3D Курск,0,-1001408615242
+ObjectId("5e899de25cc9cd22edbe96c8"),cvd3d_khabarovsk,RU-KHA,""2020-04-06T14:45:21.276Z"",18,CVD 3D Хабаровск,0,-1001202634923
+ObjectId("5e899ea85cc9cd22edbe96c9"),cvd3d_blagoveshchensk,RU-AMU,""2020-04-06T14:45:26.437Z"",6,CVD 3D Благовещенск и Амурская область,0,-1001412071666
+ObjectId("5e89ac93279fa963b8d3c8b6"),cvd3d_khakassia,RU-KK,""2020-04-06T14:45:31.648Z"",5,CVD 3D Абакан,0,-1001263044325
+ObjectId("5e89ade1279fa963b8d3c8b7"),cvd3d_chechnya,RU-CE,""2020-04-06T14:45:36.765Z"",8,CVD 3D Чеченская республика,0,-1001151625753
+ObjectId("5e89af66279fa963b8d3c8b8"),cvd3d_chuvash,RU-CU,""2020-04-06T14:45:41.875Z"",9,CVD 3D Чувашия,0,-1001464343510
+ObjectId("5e89b04a279fa963b8d3c8b9"),cvd3d_chita,RU-ZAB,""2020-04-06T14:45:47.005Z"",5,CVD 3D Забайкальский край,0,-1001417678371
+ObjectId("5e89b5379883856c5120a37e"),cvd3d_kamchatka,RU-KAM,""2020-04-06T14:45:52.153Z"",6,CVD 3D Камчатка,0,-1001236996197
+ObjectId("5e89bd9d9883856c5120a37f"),cvd3d_barnaul,RU-ALT,""2020-04-06T14:45:57.269Z"",7,CVD 3D Барнаул,0,-1001181070608
+ObjectId("5e89c0199883856c5120a380"),cvd3d_belgorod,RU-BEL,""2020-04-06T14:46:02.393Z"",12,CVD 3D Белгород,0,-1001394032802
+ObjectId("5e89c8279883856c5120a381"),cvd3d_bryansk,RU-BRY,""2020-04-06T14:46:07.520Z"",8,CVD 3D Брянск,0,-1001461498189
+ObjectId("5e89ce519883856c5120a382"),cvd3d_vologda,RU-VLG,""2020-04-06T14:46:12.632Z"",6,CVD 3D Вологда,0,-1001225749929
+ObjectId("5e89d03f9883856c5120a383"),cvd3d_kemerovo,RU-KEM,""2020-04-06T14:46:17.840Z"",6,CVD 3D Кемерово,0,-1001482973051
+ObjectId("5e89d21e9883856c5120a384"),cvd3d_kostroma,RU-KOS,""2020-04-06T14:46:22.996Z"",6,CVD 3D Кострома,0,-1001331816683
+ObjectId("5e89d4259883856c5120a385"),cvd3d_magadan,RU-MAG,""2020-04-06T14:46:28.114Z"",6,CVD 3D Магадан,0,-1001477063799
+ObjectId("5e89d5909883856c5120a386"),cvd3d_novgorod,RU-NGR,""2020-04-06T14:46:33.234Z"",6,CVD 3D Новгород,0,-1001319324980
+ObjectId("5e89da209883856c5120a387"),cvd3d_omsk,RU-OMS,""2020-04-06T14:46:38.343Z"",7,CVD 3D Омск,0,-1001333860789
+ObjectId("5e89e2659883856c5120a388"),cvd3d_oryol,RU-ORL,""2020-04-06T14:46:43.540Z"",8,CVD 3D Орёл,0,-1001444663076
+ObjectId("5e89e9499883856c5120a389"),cvd3d_ryazan,RU-RYA,""2020-04-06T14:46:48.668Z"",8,CVD 3D Рязань,0,-1001228260406
+ObjectId("5e89ebb09883856c5120a38a"),cvd3d_kabard_balkar,RU-KB,""2020-04-06T14:46:53.953Z"",5,CVD 3D Кабардино-Балкария,0,-1001438167883
+ObjectId("5e89ed4b9883856c5120a38b"),cvd3d_sakhalin,RU-SAK,""2020-04-06T14:46:59.073Z"",6,CVD 3D Сахалин,0,-1001307540234
+ObjectId("5e89f1159883856c5120a38c"),cvd3d_smolensk,RU-SMO,""2020-04-06T14:47:04.259Z"",7,CVD 3D Смоленск,0,-1001195369247
+ObjectId("5e89f63e9883856c5120a38d"),cvd3d_ulyanovsk,RU-ULY,""2020-04-06T14:47:09.474Z"",7,CVD 3D Ульяновск,0,-1001370032012
+ObjectId("5e89f8369883856c5120a38e"),cvd3d_lugansk,UA-09,""2020-04-06T14:47:14.591Z"",6,Мейкеры против COVID19. Луганск,0,-1001200853112
+ObjectId("5e8a1e2c9883856c5120a38f"),cvd3d_birobidzan,RU-YEV,""2020-04-06T14:47:19.700Z"",6,CVD 3D Биробиджан,0,-1001151891477
+ObjectId("5e8a1f5e9883856c5120a390"),cvd3d_naryan_mar,RU-NEN,""2020-04-06T14:47:24.818Z"",6,CVD 3D Нарьян-Мар,0,-1001207749932
+ObjectId("5e8a45f79883856c5120a391"),cvd3d_kirov,RU-KIR,""2020-04-06T14:47:30.011Z"",7,CVD 3D Киров,0,-1001437475893
+ObjectId("5e8a478e9883856c5120a392"),cvd3d_orenburg,RU-ORE,""2020-04-06T14:47:35.209Z"",6,CVD 3D Оренбург,0,-1001288190941
+ObjectId("5e8abb8f9883856c5120a393"),cvd3d_yakutia,RU-SA,""2020-04-06T14:47:40.378Z"",6,CVD 3D Якутия,0,-1001183772977
+ObjectId("5e8adeae9883856c5120a394"),cvd3d_yanao,RU-YAN,""2020-04-06T14:47:45.522Z"",6,CVD 3D Салехард,0,-1001236253784
+ObjectId("5e8aec499883856c5120a395"),cvd3d_tambov,RU-TAM,""2020-04-06T14:47:50.644Z"",5,CVD Тамбов,0,-1001393913312
+ObjectId("5e8aece59883856c5120a396"),cvd3d_yugra,RU-KHM,""2020-04-06T14:47:55.768Z"",6,CVD 3D Ханты-Мансийск,0,-1001494117770
+ObjectId("5e8aed109883856c5120a397"),cvd3d_mordovia,RU-MO,""2020-04-06T14:48:00.922Z"",7,CVD 3D Мордовия,0,-1001169121900
+ObjectId("5e8aed6d9883856c5120a398"),cvd3d_mari_el,RU-ME,""2020-04-06T14:48:06.095Z"",6,CVD 3D Марий Эл,0,-1001354139704
+ObjectId("5e8aed7c9883856c5120a399"),cvd3d_anadyr,RU-CHU,""2020-04-06T14:48:11.307Z"",6,CVD 3D Анадырь,0,-1001308797731
