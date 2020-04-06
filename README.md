@@ -16,3 +16,33 @@ start consumer: `npm run consumer`
 
 start server: `npm run server`
 
+# nginx config for using with ssl
+```
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        location / {
+                return 301 https://$host$request_uri;
+        }
+}
+
+server {
+        listen 443 ssl default_server;
+        listen [::]:443 ssl default_server;
+
+        ssl_certificate ...;
+        ssl_certificate_key  ...;
+
+        root /var/www/html;
+
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name _;
+
+        location / {
+                proxy_set_header  X-Real-IP $remote_addr;
+                proxy_pass http://localhost:8000;
+        }
+}
+```
