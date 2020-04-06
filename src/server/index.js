@@ -16,7 +16,7 @@ app.set('views', './src/server/views');
 app.set('view engine', 'ejs');
 
 app.get(server.route, async (req, res) => {
-    const referer = req.headers.host;
+    const referer = req.headers.referer;
     if (!referer.startsWith(server.referer)) {
         return res.send(`console.log('https://github.com/crystalbit/telegram-member-count-html-widget')`);
     }
