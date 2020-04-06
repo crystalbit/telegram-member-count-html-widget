@@ -7,7 +7,8 @@ module.exports = {
     },
     server: {
         route: '/covid-volunteers-map.js',
-        port: 80
+        port: 80,
+        host: 'localhost'
     },
     yandex: {
         key: '<yandex maps api key>'

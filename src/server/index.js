@@ -16,6 +16,10 @@ app.set('views', './src/server/views');
 app.set('view engine', 'ejs');
 
 app.get(server.route, async (req, res) => {
+    const host = req.headers.host;
+    if (!host.startsWith(server.host)) {
+        return res.send(`console.log('https://github.com/crystalbit/telegram-member-count-html-widget')`);
+    }
     if (cache) {
         res.send(cache);
     } else {
