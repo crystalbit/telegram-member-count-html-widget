@@ -12,17 +12,19 @@ const injectDatabase = _db => {
 const bot = new Telegraf(telegram.token);
 bot.use(async ctx => {
     if (!ctx.update) return;
-    // console.log(ctx.update)
-    if (!ctx.update.message) return;
-    const message = ctx.update.message;
+    if (!ctx.update.message && !ctx.update.edited_message) console.log(ctx.update)
+    if (!ctx.update.message && !ctx.update.edited_message) return;
+    const message = ctx.update.message || ctx.update.edited_message;
     const from = message.from;
+    // if (!from) console.log(message)
     if (!from) return;
     const chat = message.chat;
+    // if (!chat) console.log(message)
     if (!chat) return;
 
-    if (message.new_chat_participant) {
-        console.log('new member', from);
-    }
+    // if (message.new_chat_participant) {
+    //     console.log('new member', from);
+    // }
 
     if (chat.type === 'group' || chat.type === 'supergroup') {
         if (!chat.username) return;

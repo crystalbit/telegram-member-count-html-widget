@@ -57,7 +57,7 @@ const getMinCount = () => {
 }
 
 const get = () => {
-    return Chat.find({ id: { $exists: true } });
+    return Chat.find({ region: { $exists: true } });
 }
 
 module.exports = {

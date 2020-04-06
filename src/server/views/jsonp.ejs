@@ -5,9 +5,14 @@ ymaps.ready(function() {
     var clicked = false;
 
     function baloonText(district) {
-        return 'Чат: <a href="tg://resolve?domain=' + district.properties.username + '">' +
-                district.properties.name + '</a><br/>\n' +
-                'Участников: ' + district.properties.count + '<br/>';
+        var chats = district.properties.chats;
+        console.log(JSON.stringify(chats));
+        var res = '';
+        if (chats.length) for (let i = 0; i < chats.length; i++) {
+            res += '<a href="tg://resolve?domain=' + chats[i].username + '">' +
+            chats[i].name + '</a> (' + chats[i].count + ')<br/>'
+        }
+        return res;
     }
 
     function mouseEnterHandler(event) {
@@ -37,25 +42,31 @@ ymaps.ready(function() {
 
     var map = new ymaps.Map("first_map", {
         center: [65, 70],
-        zoom: 1,
+        zoom: 2,
         controls: ['zoomControl']
     },{
         restrictMapArea: [[-10, -10], [85, -160]]
     });
+    map.controls.get('zoomControl').options.set({ size: 'small' });
+    var pane = new ymaps.pane.StaticPane(map, {
+        zIndex: 100, css: {
+            width: '100%', height: '100%', backgroundColor: '#f7f7f7'
+        }
+    });
+    map.panes.append('white', pane);
     var districtBalloon = new ymaps.Balloon(map);
     districtBalloon.options.setParent(map.options);
 
-    var countries;
-    var ruRegions;
     var combinedFeatures = [];
+    var collected = 0;
     ymaps.borders.load('001', {
         lang: 'ru',
         quality: 2
     }).then(function(res) {
-        countries = res.features;
-        combinedFeatures = combinedFeatures.concat(countries)
-        if (ruRegions) {
-            countries = null;
+        collected++;
+        combinedFeatures = res.features.concat(combinedFeatures)
+        if (collected === 3) {
+            collected = 0;
             fetchRegions();
         }
     });
@@ -64,10 +75,22 @@ ymaps.ready(function() {
         lang: 'ru',
         quality: 2
     }).then(function(res) {
-        ruRegions = res.features;
-        combinedFeatures = combinedFeatures.concat(ruRegions)
-        if (countries) {
-            ruRegions = null;
+        collected++;
+        combinedFeatures = combinedFeatures.concat(res.features)
+        if (collected === 3) {
+            collected = 0;
+            fetchRegions();
+        }
+    });
+
+    ymaps.borders.load('UA', {
+        lang: 'ru',
+        quality: 2
+    }).then(function(res) {
+        collected++;
+        combinedFeatures = combinedFeatures.concat(res.features)
+        if (collected === 3) {
+            collected = 0;
             fetchRegions();
         }
     });
@@ -83,12 +106,10 @@ ymaps.ready(function() {
                     hintCloseTimeout: 0,
                     hintOpenTimeout: 0
                 });
-                region.properties.count = <%= item.count %>;
-                region.properties.name = '<%= item.name %>';
-                region.properties.username = '<%= item.username %>';
-                <% item.codes.forEach(code => { %>
-                region.add(new ymaps.GeoObject(combinedFeatures.find(function(reg) { return reg.properties.iso3166 === '<%= code %>'; })));
-                <% }); %>
+                region.properties.count = '<%= item.count ? item.count : 'нет информации' %>';
+                region.properties.chats = <%- JSON.stringify(item.chats) %>;
+                
+                region.add(new ymaps.GeoObject(combinedFeatures.find(function(reg) { return reg.properties.iso3166 === '<%=  item.code %>'; })));
                 map.geoObjects.add(region);
                 region.events.add('mouseenter', mouseEnterHandler);
                 region.events.add('mouseleave', mouseLeaveHandler);
