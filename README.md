@@ -16,6 +16,16 @@ start consumer: `npm run consumer`
 
 start server: `npm run server`
 
+# configuration
+* copy src/config.sample.js to config.js
+* set bot token, mongodb connection string, webpage domain (because yandex api key is for only one domain),
+* yandex maps api key, admins list (can be both usernames and ids).
+* if you need ssl, obtain certificates and configure nginx reverse proxy, see config below.
+
+# telegram bot
+telegram bot shall be admin in every chat and have ability to read messages.
+there can be a variant when telegram bot is admin with no permissions, but in this case you shall put id of chats to the database manually
+
 # nginx config for using with ssl
 ```
 server {
@@ -42,7 +52,7 @@ server {
 
         location / {
                 proxy_set_header  X-Real-IP $remote_addr;
-                proxy_pass http://localhost:8000;
+                proxy_pass http://localhost:2222;
         }
 }
 ```
