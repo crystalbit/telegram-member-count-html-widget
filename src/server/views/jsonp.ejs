@@ -6,7 +6,6 @@ ymaps.ready(function() {
 
     function baloonText(district) {
         var chats = district.properties.chats;
-        console.log(JSON.stringify(chats));
         var res = '';
         if (chats.length) for (let i = 0; i < chats.length; i++) {
             res += '<a href="tg://resolve?domain=' + chats[i].username + '">' +
