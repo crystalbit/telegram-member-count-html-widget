@@ -6,7 +6,10 @@ module.exports = {
         addr: 'mongodb+srv://<mongodb connection string>'
     },
     server: {
-        route: '/covid-volunteers-map.js',
+        routes: {
+            jsmap: '/covid-volunteers-map.js',
+            jsregions: '/regions.js'
+        },
         port: 80,
         referer: 'localhost'
     },
