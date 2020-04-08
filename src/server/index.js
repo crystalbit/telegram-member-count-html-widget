@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const { server, yandex } = require('../config');
 const generateMapContent = require('./helpers/generateMapContent');
+const minifier = require('./helpers/minifier');
 
 let cache = null;
 
