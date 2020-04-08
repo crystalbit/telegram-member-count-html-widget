@@ -25,7 +25,7 @@ app.get(server.routes.jsmap, async (req, res) => {
             if (err) {
                 res.send('console.log(`Error ' + err + '`);');
             } else {
-                const minified = minifier(code);
+                const minified = await minifier(code);
                 cache = minified;
                 setTimeout(() => cache = null, 5 * 60 * 1000);
                 res.send(minified);

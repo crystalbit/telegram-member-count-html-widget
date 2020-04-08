@@ -1,7 +1,7 @@
 const minify = require('@node-minify/core');
 const uglifyJS = require('@node-minify/uglify-js');
 
-const minifier = code => {
+const minifier = async code => {
     let minified;
     try {
         minified = await minify({
