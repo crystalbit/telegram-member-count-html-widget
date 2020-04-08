@@ -11,6 +11,7 @@ const minifier = async code => {
     } catch (err) {
         minified = code;
     }
+    return minified;
 };
 
 module.exports = minifier;
