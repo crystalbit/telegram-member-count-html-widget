@@ -30,7 +30,7 @@ const generateMapContent = async () => {
             });
         }
     });
-    return data;
+    return Object.values(data);
 }
 
 module.exports = generateMapContent;

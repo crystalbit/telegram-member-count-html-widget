@@ -2,9 +2,13 @@ const express = require('express');
 const morgan = require('morgan');
 const { server, yandex } = require('../config');
 const generateMapContent = require('./helpers/generateMapContent');
+const generateRegions = require('./helpers/generateRegions');
 const minifier = require('./helpers/minifier');
 
-let cache = null;
+let cache = {
+    map: null,
+    regions: null
+};
 
 const app = express();
 
@@ -17,18 +21,36 @@ app.get(server.routes.jsmap, async (req, res) => {
     if (!referer.startsWith(server.referer)) {
         return res.send(`console.log('https://github.com/crystalbit/telegram-member-count-html-widget')`);
     }
-    if (cache) {
-        res.send(cache);
+    if (cache.map) {
+        res.send(cache.map);
     } else {
-        const data = await generateMapContent();
-        res.render('jsonp', { items: Object.values(data), cached: new Date }, async (err, code) => {
+        const items = await generateMapContent();
+        res.render('jsonp', { items, cached: new Date }, async (err, code) => {
             if (err) {
-                res.send('console.log(`Error ' + err + '`);');
+                res.type('text/javascript').send('console.log(`Error ' + err + '`);');
             } else {
                 const minified = await minifier(code);
-                cache = minified;
-                setTimeout(() => cache = null, 5 * 60 * 1000);
-                res.send(minified);
+                cache.map = minified;
+                setTimeout(() => cache.map = null, 5 * 60 * 1000);
+                res.type('text/javascript').send(minified);
+            }
+        });
+    }
+});
+
+app.get(server.routes.jsregions, async (req, res) => {
+    if (cache.regions) {
+        res.send(cache.regions);
+    } else {
+        const data = await generateRegions();
+        res.render('regions', { data, cached: new Date }, async (err, code) => {
+            if (err) {
+                res.type('text/javascript').send('console.log(`Error ' + err + '`);');
+            } else {
+                const minified = await minifier(code);
+                cache.regions = minified;
+                setTimeout(() => cache.regions = null, 5 * 60 * 1000);
+                res.type('text/javascript').send(minified);
             }
         });
     }
