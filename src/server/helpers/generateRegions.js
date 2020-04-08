@@ -24,10 +24,11 @@ const generateRegionsContent = async () => {
 
 const generateRegionsString = async () => {
     const items = await generateRegionsContent();
-    let result = '';
+    let result = '<div class="reg-cont">';
     for (item of items) {
-        result += `<div><span>${item.code}</span><span>${item.code}</span></div>`;
+        result += `<div class="reg-item"><span>${item.code}</span><span>${item.code}</span></div>`;
     }
+    result += `</div>`;
     return result;
 }
 
