@@ -1,4 +1,5 @@
 const database = require('../../common/database');
+const getRegion = require('./getRegion');
 
 const generateRegionsContent = async () => {
     const getter = await database.get();
@@ -26,7 +27,11 @@ const generateRegionsString = async () => {
     const items = await generateRegionsContent();
     let result = '<div class="reg-cont">';
     for (item of items) {
-        result += `<div class="reg-item"><span>${item.code}</span><span>${item.code}</span></div>`;
+        let chats = '';
+        for (chat of item.chats) {
+            chats += `<p><a href="tg://resolve?domain=${chat.username}">${chat.name}</a> (${chat.count})</p>`;
+        }
+        result += `<div><h3>${getRegion(item.code)}</h3>${chats}</div>`;
     }
     result += `</div>`;
     return result;

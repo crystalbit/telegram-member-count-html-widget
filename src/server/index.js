@@ -1,3 +1,4 @@
+// TODO do separate controllers
 const express = require('express');
 const morgan = require('morgan');
 const { server, yandex } = require('../config');

@@ -25,6 +25,7 @@
     "@node-minify/uglify-js": "^5.3.0",
     "ejs": "^3.0.2",
     "express": "^4.17.1",
+    "iso3166-2-db": "^2.3.6",
     "mongoose": "^5.9.7",
     "morgan": "^1.10.0",
     "telegraf": "^3.37.0"
